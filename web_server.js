@@ -42,6 +42,6 @@ var server = http.createServer(function(request, response) {
     });
 });
 
-server.listen(8080, function(){
+server.listen(process.env.PORT || 5000, function(){
     console.log('ready captain!');
 });

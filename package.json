@@ -1,0 +1,16 @@
+{
+  "name": "seraro-web3",
+  "config": {
+  	"port": "process.env.PORT"
+  },
+  "version": "1.0.0",
+  "description": "our issue tracker",
+  "main": "web_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node web_server.js"
+  },
+
+  "author": "erbenaro, dibraser",
+  "license": "ISC"
+}

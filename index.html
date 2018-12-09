@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Issue Tracker</title>
+    <link href="css/application.css" rel="stylesheet">
+</head>
+<body>
+
+<app>
+</app>
+
+<script type="riot/tag" src="components/todo.tag.html"></script>
+<script type="riot/tag" src="components/todo-creator.tag.html"></script>
+<script type="riot/tag" src="components/todo-list.tag.html"></script>
+<script type="riot/tag" src="components/project.tag.html"></script>
+<script type="riot/tag" src="components/project-creator.tag.html"></script>
+<script type="riot/tag" src="components/application.tag.html"></script>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/riot+compiler.min.js"></script>
+<script type="text/javascript" src="model/project.js"></script>
+<script type="text/javascript" src="model/app.js"></script>
+<script>riot.mount("*");</script>
+
+</body>
+</html>

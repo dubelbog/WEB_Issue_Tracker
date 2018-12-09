@@ -1,0 +1,23 @@
+<app>
+    <div id="container">
+        <h1 id="green-bold" >Issue Tracker</h1>
+        <h1>Project Manager</h1>
+        <project-creator app="{this.app}"></project-creator>
+
+            <div class="projectList">
+                <project each="{this.app.projectCollection}" data="{this}" ></project>
+            </div>
+        <h1>Task Manager</h1>
+
+        <todo-list app="{this.app}"></todo-list>
+    </div>
+
+
+    <script>
+        this.app = new App(this);
+
+        select(pid) {
+            this.app.select(pid);
+        }
+    </script>
+</app>

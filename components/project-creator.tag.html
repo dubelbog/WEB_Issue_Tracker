@@ -1,0 +1,20 @@
+<project-creator>
+
+  <div class="line">
+    <h3> New project </h3>
+    <input type="text" ref="pname" title="project name"> </input>
+    <button id='create_project' class="input" title="project create button" onclick={addProject}>Create Project</button>
+  </div>
+
+    <script>
+        var tag = this;
+        var projects = opts.app;
+
+        tag.addProject = function() {
+            if (this.refs.pname.value) {
+                projects.add(this.refs.pname.value);
+                this.refs.pname.value = '';
+            }
+        };
+    </script>
+</project-creator>

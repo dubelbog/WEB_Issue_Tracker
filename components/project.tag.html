@@ -1,0 +1,9 @@
+<project>
+    <p class="{active ? 'active' : ''} projectItem" onclick="{select}">{ pname }</p>
+
+    <script>
+        this.select = function() {
+            this.parent.select(this.pid);
+        }
+    </script>
+</project>

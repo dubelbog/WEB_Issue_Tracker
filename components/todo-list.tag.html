@@ -1,0 +1,33 @@
+<todo-list>
+
+  <todo-creator app="{opts.app}"></todo-creator>
+
+  <form id="todoForm">
+
+    <h1 id="green-bold" class="project_title">{ opts.app.getActiveProject().pname }</h1>
+
+    <div class="line issue">
+      <h4 class="start"> Issue </h4>
+      <input class="hidden" type="checkbox" value="isssue_name">
+      <p class="start"> Priority </p>
+      <p class="start"> Date </p>
+      <button class="btn-delete hidden"> Delete</button>
+    </div>
+
+    <todo each="{opts.app.getActiveProject().todoCollection}" app="{opts.app}"></todo>
+
+  </form>
+
+  <script>
+
+  toggle(id) {
+    opts.app.toggle(id);
+    opts.app.save();
+  }
+
+  deleteTodo(id) {
+    opts.app.deleteTodo(id);
+    opts.app.save();
+  }
+</script>
+</todo-list>

@@ -1,0 +1,19 @@
+<todo>
+    <div class="{done ? 'done' : ''} line issue">
+        <input type="checkbox" checked="{done}" onclick="{toggle}" title="Checkbox"/>
+        <h4>{ name }</h4>
+        <p>{ priority }</p>
+        <p>{ date }</p>
+        <button class="btn-delete" onclick={ deleteTodo }> Delete </button>
+    </div>
+    <script>
+
+        this.toggle = function() {
+          this.parent.toggle(this.id);
+        }
+
+        this.deleteTodo = function() {
+          this.parent.deleteTodo(this.id);
+        }
+    </script>
+</todo>

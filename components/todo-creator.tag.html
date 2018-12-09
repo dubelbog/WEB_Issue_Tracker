@@ -1,0 +1,61 @@
+<todo-creator>
+
+  <div class="line">
+      <h3> New task</h3>
+      <input type="text" ref="name" title="issue title">
+      <button id="save_todo" class="input" title="issue create button" onclick={submit}>Create Task</button>
+    </div>
+
+  <div class="line">
+      <h3> Define Priority </h3>
+      <select class="input" ref="priority" title="priority select" id="priority">
+        <option value="" disabled active>Select priority </option>
+        <option value="1">low</option>
+        <option value="2">medium</option>
+        <option value="3">high</option>
+      </select>
+    </div>
+
+    <div class="line">
+        <h3>Set date </h3>
+        <input ref="date" type="date" class="datePickerInput" title="date" class = "datepicker">
+    </div>
+
+    <script>
+        var tag = this;
+        var projects = opts.app;
+
+        tag.submit = function() {
+            var date;
+            if(!this.refs.date.value) {
+                date = new Date();
+                date = "" + date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+            } else {
+                date = this.formatDate(this.refs.date.value);
+            }
+            if (this.refs.name.value && this.refs.priority.value && date) {
+                udpatedDate = new Date();
+                udpatedDate = "" + udpatedDate.getFullYear() + "-" + (udpatedDate.getMonth()+1)
+                              + "-" + udpatedDate.getDate() + "T" + udpatedDate.getHours() + ":"
+                              + udpatedDate.getMinutes() + ":" + udpatedDate.getSeconds();
+                projects.addTodoAPI({ "name" : this.refs.name.value,
+                                      "priority" : this.refs.priority.value,
+                                      "date" : date,
+                                      "updated_at": udpatedDate,
+                                      "done": false });
+                projects.save();
+                this.refs.name.value = '';
+                this.refs.priority.value = '';
+                this.refs.date.value = '';
+            } else{
+              alert("To save a task title, priority and date have to be defined.");
+            }
+        };
+
+        this.formatDate = function(date) {
+            var dateArr = date.split("-");
+            return dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
+        }
+    </script>
+
+</todo-creator>

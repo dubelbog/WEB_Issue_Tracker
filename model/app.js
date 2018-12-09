@@ -20,7 +20,7 @@ class App {
         var elem = this;
         $.ajax({
             method: "POST",
-            url: "http://zhaw-issue-tracker-api.herokuapp.com/api/projects",
+            url: "https://zhaw-issue-tracker-api.herokuapp.com/api/projects",
             data: JSON.stringify(newProject),
             contentType: "application/json",
             dataType: "json",
@@ -50,7 +50,7 @@ class App {
 
         this.unselectAll();
         this.projectCollection.forEach(function(project){
-            var url = "http://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + project.pid + "/issues";
+            var url = "https://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + project.pid + "/issues";
             $.ajax({
                 method: "GET",
                 url: url,
@@ -142,7 +142,7 @@ class App {
                 "due_date": todo.date,
                 "project_id": thisProjectID
             }
-            var postUrl = "http://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + thisProjectID + "/issues"
+            var postUrl = "https://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + thisProjectID + "/issues"
 
             $.ajax({
                 method: "POST",
@@ -175,7 +175,7 @@ class App {
 
     deleteTodoAPI(todoID){
         var projectID = this.getActiveProject().pid;
-        var deleteUrl = "http://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + projectID + "/issues/" + todoID;
+        var deleteUrl = "https://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + projectID + "/issues/" + todoID;
         $.ajax({
             method: "DELETE",
             url: deleteUrl,
@@ -211,7 +211,7 @@ class App {
                 "client_id": clientId,
                 "project_id": activeProject
         }
-        var postUrl = "http://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + activeProject + "/issues/" + todo.id;
+        var postUrl = "https://zhaw-issue-tracker-api.herokuapp.com/api/projects/" + activeProject + "/issues/" + todo.id;
         $.ajax({
             method: "PUT",
             url: postUrl,
